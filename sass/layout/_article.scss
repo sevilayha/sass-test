@@ -1,44 +1,5 @@
-$body-background: #F8F8F8;
-$content-background: #FFF;
-
-$text-color: #444;
-$header-color: #222;
-
-$font-family-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-family-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-family-code: Consolas, monospace;
-
 $article-padding: 100px;
-$sidebar-width: 300px;
 
-// BASE STYLES ==============
-*    {
-  box-sizing: border-box;
-}
-html {
-  overflow-y: scroll;
-}
-
-body {
-  background: $body-background;
-  color: $text-color;
-  margin: 0;
-  padding: 0;
-  font-family: $font-family-text;
-  font-size: 19px;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  color: $header-color;
-  font-family: $font-family-display;
-}
-
-img     {
-  max-width: 100%;
-}
-
-// ARTICLE BASE STYLES ================
 .article   {
   width: 1300px;
   max-width: 90vw;
@@ -48,20 +9,9 @@ img     {
   display: block;
 }
 
-.angle--giant  {
-  content: '';
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 95vw;
-  height: 100vh;
-  z-index: -1;
-  background: #FFD200;
-  background-image: url('https://scotch.io/wp-content/uploads/2016/02/tutorials-banner-2.jpg');
-  clip-path: polygon(70vw 0, 0% 100%, 0 0);
-}
-
-// ARTICLE CONTENT BASE STYLES
+/**
+ * Base styles for the body section (main content)
+ */
 .article__body {
 
   p, pre, ul, ol, table, img, > div {
@@ -74,7 +24,7 @@ img     {
     font-size: 70px;
 
     a   {
-      color: $header-color;
+      color: $header-text-color;
     }
 
     &:first-child {
@@ -85,7 +35,7 @@ img     {
   h3  {
     margin: 50px 0;
     font-size: 40px;
-    color: lighten($header-color, 10%);
+    color: lighten($header-text-color, 10%);
   }
 
   li    {
@@ -109,9 +59,11 @@ img     {
     clip-path: polygon(0 15px, 100% 0, 100% calc(100% - 15px), 0% 100%);
   }
 
-}
+} // .article__body
 
-// SINGLE ARTICLE ======================
+/**
+ * Styles for an article specific to single 
+ */
 .article--single {  
   
   .article__image  {
@@ -200,8 +152,3 @@ img     {
   }
 
 } // .article--single
-
-// META (AUTHOR - DATE - TAGS)
-.article__meta   {
-  color: lighten($text-color, 15%); 
-}

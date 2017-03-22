@@ -1,0 +1,18 @@
+$font-family-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-code: Consolas, monospace;
+
+$text-color: #444;
+$header-text-color: #222;
+
+body {
+  font-family: $font-family-text;
+  font-size: 19px;
+  line-height: 1.6; 
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $header-text-color;
+  font-family: $font-family-display;
+}

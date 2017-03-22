@@ -1,0 +1,16 @@
+$body-background: #F8F8F8;
+$content-background: #FFF;
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  background: $body-background;  
+  margin: 0;
+  padding: 0;  
+}
+
+img     {
+  max-width: 100%;
+}

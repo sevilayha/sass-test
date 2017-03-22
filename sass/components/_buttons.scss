@@ -1,0 +1,12 @@
+.angle--giant  {
+  content: '';
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 95vw;
+  height: 100vh;
+  z-index: -1;
+  background: #FFD200;
+  background-image: url('https://scotch.io/wp-content/uploads/2016/02/tutorials-banner-2.jpg');
+  clip-path: polygon(70vw 0, 0% 100%, 0 0);
+}

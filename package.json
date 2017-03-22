@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "npm run build-css && concurrently \"npm run watch-css\" \"npm run lite\"",
-    "build-css": "node-sass sass/styles.scss css/styles.css --include-path sass --output-style compressed",
-    "watch-css": "node-sass sass/styles.scss css/styles.css --include-path sass --output-style compressed --watch",
+    "build-css": "node-sass sass/main.scss css/styles.css --include-path sass --output-style compressed",
+    "watch-css": "node-sass sass/main.scss css/styles.css --include-path sass --output-style compressed --watch",
     "lite": "lite-server"
   },
   "devDependencies": { 
