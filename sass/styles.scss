@@ -40,7 +40,7 @@ img     {
 
 // ARTICLE BASE STYLES ================
 .article   {
-  width: 1400px;
+  width: 1300px;
   max-width: 80vw;
   margin: 50px auto;
   border-radius: 5px;
@@ -58,16 +58,15 @@ img     {
   z-index: -1;
   background: #FFD200;
   background-image: url('https://scotch.io/wp-content/uploads/2016/02/tutorials-banner-2.jpg');
-  clip-path: polygon(65% 0, 0% 100%, 0 0);
+  clip-path: polygon(70vw 0, 0% 100%, 0 0);
 }
 
 // SINGLE ARTICLE ======================
 .article--single {
   
   
-  .article__image {
-    img           {
-    }
+  .article__image  {
+    text-align: center;
   } // .article__image
 
   .article__header    {
@@ -85,18 +84,19 @@ img     {
   .article__content {
     background: $content-background;
     padding: $article-padding;
-    position: relative;
-    padding-left: $sidebar-width + ($article-padding * 2);
+    position: relative; 
+    display: flex;
   } // .article__content
 
   .article__sidebar {
-    position: absolute;
-    left: $article-padding;
-    right: $article-padding;
     width: $sidebar-width;
+    padding-right: ($article-padding / 2);
+    margin-right: ($article-padding / 2);
+    flex: 0 0 300px;
+    border-right: 1px solid #F2F2F2;
 
     h3  {
-      margin: 0 0 15px;
+      margin: 0 0 20px;
       letter-spacing: 1px;
       font-size: 12px;
       text-transform: uppercase;
@@ -115,17 +115,23 @@ img     {
     }
 
     a   {
-      font-size: 14px;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 10px;
       color: lighten($text-color, 25%);
     }
   } // .article__aside
 
   .sidebar__box   {
     margin-bottom: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .article__body  {
-    grid-column-start: 2;
+    
   } // .article__body
 
 } // .article--single
