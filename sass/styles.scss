@@ -40,7 +40,7 @@ img     {
 
 // ARTICLE BASE STYLES ================
 .article   {
-  width: 1500px;
+  width: 1300px;
   max-width: 90vw;
   margin: 50px auto;
   border-radius: 5px;
@@ -70,12 +70,22 @@ img     {
 
   h2    {
     margin-bottom: 50px;
-    margin-top: 50px;
-    font-size: 5rem;
+    margin-top: 80px;
+    font-size: 70px;
+
+    a   {
+      color: $header-color;
+    }
 
     &:first-child {
       margin-top: 0;
     }
+  }
+
+  h3  {
+    margin: 50px 0;
+    font-size: 40px;
+    color: lighten($header-color, 10%);
   }
 
   li    {
@@ -83,6 +93,8 @@ img     {
   }
 
   img   {
+    display: block;
+    margin: 35px auto;
     max-width: 100%;
     clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0% 100%);
   }
@@ -107,7 +119,7 @@ img     {
     position: relative;
 
     img   {
-      width: 1500px;
+      width: 100%;
     }
   } // .article__image
 

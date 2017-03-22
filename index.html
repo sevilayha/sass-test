@@ -55,32 +55,175 @@
       <!-- ARTICLE BODY -->
       <div class="article__body">
 
-        <h2>Introduction</h2>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem similique excepturi non tempora dolorem? Aspernatur sed quae iure modi, suscipit ex pariatur omnis eligendi voluptas repudiandae fugit illo commodi, obcaecati.</p>
+                                
+                                
+                                <p>Software testing is a common practice these days in many organisations, and for even individual developers. Googling around, you'll find a number of types of software tests that exist to help with this.</p>
+<p><img src="https://cdn.scotch.io/1/tgIThbAxSkuoKK8HMTf2_o77aNg8.jpg" alt=""></p>
+<p><a href="https://www.getpostman.com/">Postman</a> is a good tool which we mostly use to quickly test APIs to see the result returned by them, but it's actually way more powerful than that. </p>
+<h3>Postman Features</h3>
+<p>To mention a few of the features it comes with:-</p>
+<ol>
+<li><strong>You can simply test any API and see the response immediately</strong>.</li>
+<li>You can create a collection of API endpoints and call them whenever you want to see the responses.</li>
+<li>You can share these collections, when you are logged in with team members.</li>
+<li>You can use Postman's CLI client, Newman, to write Postman tests with JavaScript.</li>
+<li>You can write tests in JavaScript to test the response that comes when a Postman request is made.</li>
+<li>Finally, once you have all these endpoints created, you can export a JSON file, both for the endpoint tests and the environment variables, which again can be used by Postman as a source of for the tests. </li>
+</ol>
 
-        <pre><code>i am a code block</code></pre>
+<pre data-title="javascript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> jsonData <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        <ol>
-          <li><strong>You can simply test any API and see the response immediately</strong>.</li>
-          <li>You can create a collection of API endpoints and call them whenever you want to see the responses.</li>
-          <li>You can share these collections, when you are logged in with team members.</li>
-          <li>You can use Postman's CLI client, Newman, to write Postman tests with JavaScript.</li>
-          <li>You can write tests in JavaScript to test the response that comes when a Postman request is made.</li>
-          <li>Finally, once you have all these endpoints created, you can export a JSON file, both for the endpoint tests and the environment variables, which again can be used by Postman as a source of for the tests.</li>
-        </ol>
+<span class="token keyword">const</span> <span class="token punctuation">{</span> login <span class="token punctuation">}</span> <span class="token operator">=</span> jsonData<span class="token punctuation">;</span>
 
-        <img src="https://cdn.scotch.io/1/tgIThbAxSkuoKK8HMTf2_o77aNg8.jpg">
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct username"</span><span class="token punctuation">]</span> <span class="token operator">=</span> login <span class="token operator">===</span> <span class="token string">"scotch-io"</span><span class="token punctuation">;</span>
 
-        <h2>Getting Started</h2>
+tests<span class="token punctuation">[</span><span class="token string">"Status code is 200"</span><span class="token punctuation">]</span> <span class="token operator">=</span> responseCode<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">;</span>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem similique excepturi non tempora dolorem? Aspernatur sed quae iure modi, suscipit ex pariatur omnis eligendi voluptas repudiandae fugit illo commodi, obcaecati.</p>
+tests<span class="token punctuation">[</span><span class="token string">"Content-Type is present"</span><span class="token punctuation">]</span> <span class="token operator">=</span> postman<span class="token punctuation">.</span><span class="token function">getResponseHeader</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 
-        <pre><code>i am a code block</code></pre>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem similique excepturi non tempora dolorem? Aspernatur sed quae iure modi, suscipit ex pariatur omnis eligendi voluptas repudiandae fugit illo commodi, obcaecati.</p>
+<p>We are going to look at all these feature, some are intuitive, some not so much unless you've been using Postman for a while.</p>
+<p>Since Postman is a tool, we can test APIs written in any language, we'll do our tests with the open <a href="https://api.github.com/">Github API</a>.</p>
+<h2 id="installation-and-setup"><a href="#installation-and-setup"><span class="icon">#</span> Installation and Setup</a></h2>
+<p>If you have Postman already installed, you can skip to the next section. </p>
+<p>If not, make sure you have Google Chrome installed, then head over to the Chrome Store and search for <a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop/related?hl=en">Postman</a>
+<img src="https://cdn.scotch.io/303/cVnlL1TsCmFc2IcBKaAc_Screen%20Shot%202017-02-14%20at%2010.55.27%20AM.png" alt="">
+Install it by clicking  the <strong>Add to Chrome</strong> button, then it will either turn to <strong>Launch App</strong> or take you to the Google Chrome Apps page. You can open it with either options.</p>
+<p><strong>NOTE:</strong> Google will be phasing out Chrome apps on the Chrome Web Store by 2018. So it's encouraged to install the native Postman for your platform. Visit the <a href="https://www.getpostman.com/">Postman site</a> and get your platform download.
+<img src="https://cdn.scotch.io/303/JTX15zYSRJWpOxaP5MVh_Screen%20Shot%202017-03-11%20at%2011.10.07%20AM.png" alt="">
+You can then look it up in your installed apps and open it.</p>
+<p>You can choose to <em>Sign Up</em> if you want, this is important especially for saving your API collections and accessing them anytime on any machine, but for this article, we can skip this. There's a button for that towards the bottom when you first launch the app.
+<img src="https://cdn.scotch.io/303/uH7Jb53NQ1OCNqSRWPia_out.gif" alt=""></p>
+<h2 id="postman-collections"><a href="#postman-collections"><span class="icon">#</span> Postman Collections</a></h2>
+<p>There's a <em>Collections</em> tab on the top left of Postman, with an example <strong>POSTMAN Echo</strong> collection. You can open and inspect it.
+<img src="https://cdn.scotch.io/303/sKMbdbTTRCe0htZFMRXS_Screen%20Shot%202017-02-14%20at%2011.38.02%20AM.png" alt="">
+From the above screen shot, I've selected one of the API requests from the collection, and navigated to it's test tab.</p>
+<p>The code you see there starting with <code>tests["response code is 401"] = responseCode.code === 401;</code> is just JavaScript, and this is actually how we are going to write our tests for the Github API I had mentioned earlier. </p>
+<p>You can open the other API requests  in the <em>POSTMAN Echo</em> collection to have a feel of how requests are made.</p>
+<p>So let's start by making our own collection, and call it <em>Github API</em>. Click on the <em>Add Collection</em> button on the top left of Postman
+<img src="https://cdn.scotch.io/303/BkW8r8QiHVnDOcALlgQl_Screen%20Shot%202017-02-14%20at%2011.46.12%20AM.png" alt="">
+You will be prompted to give details about the collection, I've added a name <strong>Github API</strong> and given it a description.
+<img src="https://cdn.scotch.io/303/fg5NCc5LRW8Ih6RpAJT7_Screen%20Shot%202017-02-14%20at%2011.47.59%20AM.png" alt="">
+Clicking on <em>Create</em> should add the collection to the left pane, above, or below the example <em>POSTMAN Echo</em> collection. </p>
+<p>We'll then add a folder to the collection. Folders are a great way of separating different parts of your API workflow.
+<img src="https://cdn.scotch.io/303/JT4Uj7O8ThSDsH4SS4M0_Screen%20Shot%202017-02-14%20at%2011.49.12%20AM.png" alt="">
+I called the folder <strong>Github Root API</strong> and again gave a description.
+<img src="https://cdn.scotch.io/303/Qjo26OIRPmfjTsA7ZlVI_Screen%20Shot%202017-02-14%20at%2011.49.53%20AM.png" alt=""></p>
+<p>Now that we have the folder, the next task is to add an API call that is related to the Github API root to that folder. That API call is to <code>https://api.github.com/</code>.</p>
+<p>If you still have one of <em>POSTMAN Echo</em> collections open, you can close it the same way you close tabs in a browser, or just click on the plus button to add a new tab on the right pane where we make requests. Type in or paste in <code>https://api.github.com/</code> and press <em>Send</em> to see the response.
+<img src="https://cdn.scotch.io/303/2ytz0tMCSHmJDCJFYfZY_Screen%20Shot%202017-02-14%20at%2011.54.43%20AM.png" alt="">
+Once you get the response, you can click on the arrow next to the the save button on the far right, and select <em>Save As</em>, a pop up will be displayed asking where to save the API call.
+<img src="https://cdn.scotch.io/303/QAGGgqyjSSuUhoRebecc_Screen%20Shot%202017-02-14%20at%2012.09.49%20PM.png" alt="">
+Give a name, it can be the request URL, or a name like <strong>Root API Request</strong>, and a description, then choose the collection and folder, in this case <strong>Github API &gt; Github Root API</strong>, then click on Save. The API call will be added to the Github Root API folder on the left pane.
+<img src="https://cdn.scotch.io/303/qUFT1WI2RVWzIWg4ry9l_Screen%20Shot%202017-02-14%20at%2011.55.17%20AM.png" alt="">
+Whenever you click on this request from the collection, it will open in the center pane.</p>
+<h2 id="lets-write-the-first-test"><a href="#lets-write-the-first-test"><span class="icon">#</span> Let's Write the First Test</a></h2>
+<p>We've seen that the <strong>Root API Request</strong> request has a JSON response, which is usually the case for most APIs. The response has properties such as <em>current_user_url, emails_url, followers_url</em> and <em>following_url</em> to pick a few. </p>
+<p>The <em>current_user_url</em> has a value of <code>https://api.github.com/user</code>. Say we want to write a test for this.</p>
+<p>Click on the <strong>Root API Request</strong> and click on the test tab in the section just below where the URL is put.
+<img src="https://cdn.scotch.io/303/ReMUsS3qTam6txufgnEy_Screen%20Shot%202017-02-20%20at%2011.36.41%20AM.png" alt=""></p>
+<p>You'll notice on the right pane, we have some snippets which Postman creates when you click so that you don't have to write a lot of code.  I've annotated the relevant one for this test, which is <em>Response Body: JSON value check</em>. Clicking on it produces the following snippet.
+<img src="https://cdn.scotch.io/303/bzFIabBVRP6jOAOgH9FX_Screen%20Shot%202017-02-20%20at%2011.43.58%20AM.png" alt=""></p>
+<pre data-title="javascript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> jsonData <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+tests<span class="token punctuation">[</span><span class="token string">"Your test name"</span><span class="token punctuation">]</span> <span class="token operator">=</span> jsonData<span class="token punctuation">.</span>value <span class="token operator">===</span> <span class="token number">100</span><span class="token punctuation">;</span></code></pre>
+<p>From above, we can tell that Postman stores the response in an object called <code>responseBody</code>, and we can use this to assert values. </p>
+<p>Postman has another global variable object called tests, which is an object you can use to name your tests, and equate it to a boolean expressions. If the boolean expression returns <code>true</code>, then the test passes.</p>
+<pre data-title="javascript" class=" language-javascript"><code class=" language-javascript">tests<span class="token punctuation">[</span><span class="token string">'some random test'</span><span class="token punctuation">]</span> <span class="token operator">=</span> x <span class="token operator">===</span> y</code></pre>
+<p>If you click on <em>Send</em> to make the request, you will see a one of the tests failing.
+<img src="https://cdn.scotch.io/303/XgrPwrTET6GyEScVTfJc_Screen%20Shot%202017-02-20%20at%2011.51.14%20AM.png" alt=""></p>
+<p>Edit the snippet to make it relevant to our test.
+<img src="https://cdn.scotch.io/303/2CAzHXxPTWqMAecBUqiL_Screen%20Shot%202017-02-20%20at%2012.14.01%20PM.png" alt=""></p>
+<pre data-title="javascript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">var</span> jsonData <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> usersURL <span class="token operator">=</span> <span class="token string">"https://api.github.com/user"</span>
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct users url"</span><span class="token punctuation">]</span> <span class="token operator">=</span> jsonData<span class="token punctuation">.</span>current_user_url <span class="token operator">===</span> usersURL<span class="token punctuation">;</span></code></pre>
+<p>Clicking on send, you'll see the test passing.
+<img src="https://cdn.scotch.io/303/iUfbFgrLTAOGFzwQvsLR_Screen%20Shot%202017-02-20%20at%2012.00.17%20PM.png" alt="">.</p>
+<p>Let's modify the test further to test some of the properties we want to check.
+<img src="https://cdn.scotch.io/303/UIHk5lgR56twUFv9MBGb_Screen%20Shot%202017-02-20%20at%2012.22.58%20PM.png" alt=""></p>
+<pre data-title="javascript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> jsonData <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> usersURL <span class="token operator">=</span> <span class="token string">"https://api.github.com/user"</span>
+<span class="token keyword">const</span> emailsURL <span class="token operator">=</span> <span class="token string">"https://api.github.com/user/emails"</span>
+<span class="token keyword">const</span> followersURL <span class="token operator">=</span> <span class="token string">"https://api.github.com/user/followers"</span>
+<span class="token keyword">const</span> followingURL <span class="token operator">=</span> <span class="token string">"https://api.github.com/user/following{/target}"</span>
 
-        <pre><code>i am a code block</code></pre>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>current_user_url<span class="token punctuation">,</span> emails_url<span class="token punctuation">,</span> followers_url<span class="token punctuation">,</span> following_url<span class="token punctuation">}</span> <span class="token operator">=</span> jsonData
+
+<span class="token comment" spellcheck="true">// Tests go here</span>
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct users url"</span><span class="token punctuation">]</span> <span class="token operator">=</span> current_user_url <span class="token operator">===</span> usersURL<span class="token punctuation">;</span>
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct emails url"</span><span class="token punctuation">]</span> <span class="token operator">=</span> emails_url <span class="token operator">===</span> emailsURL<span class="token punctuation">;</span>
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct followers url"</span><span class="token punctuation">]</span> <span class="token operator">=</span> followers_url <span class="token operator">===</span> followersURL<span class="token punctuation">;</span>
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct following url"</span><span class="token punctuation">]</span> <span class="token operator">=</span> following_url <span class="token operator">===</span> followingURL<span class="token punctuation">;</span></code></pre>
+<p>This is just JavaScript. To spice it up, we've used <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">Destructuring Assignment</a> in ES2015, to declare the <em>jsonResponse</em> variables we're interested in. </p>
+<p>Clicking on <em>Send</em> should return success, and the tests passing.
+<img src="https://cdn.scotch.io/303/llMSJaZMTGOH77JLI5tM_Screen%20Shot%202017-02-20%20at%2012.23.19%20PM.png" alt=""></p>
+<p>Remember to click on <em>Save</em>, so that your test is saved to the request created in the collection.</p>
+<h2 id="environment-variables"><a href="#environment-variables"><span class="icon">#</span> Environment Variables</a></h2>
+<p>Most of the time while writing tests, we usually do not want to go around editing values that we either send as query or post parameters. That way, for instance,  if we have ten requests which all  send the username <code>scotch-io</code>, we need to create a variable for this so that we can change it once.</p>
+<p>Let's create another request called <strong>User Details Request</strong>, which will make a request with a username. Following the same procedure we did for the <strong>Root API Request</strong>, create a folder called <strong>Github User Details</strong>, and add the request inside it.  Make the <code>GET</code> request to <code>https://api.github.com/users/scotch-io</code>
+<img src="https://cdn.scotch.io/303/y9TGK3cvT9agol29K5a1_Screen%20Shot%202017-02-20%20at%2012.43.08%20PM.png" alt="">
+Now, we want to take make both <code>https://api.github.com/users/</code> and <code>scotch-io</code> environment variables. To do this click on the top right gear icon, then select <strong>Manage Environments</strong>
+<img src="https://cdn.scotch.io/303/ctRKX9n8RAiTAqnpNc6v_Screen%20Shot%202017-02-20%20at%2012.46.00%20PM.png" alt="">
+A pop up will be displayed. Below it, under the <strong>Manage Environments</strong> tab click on <em>Add</em>.
+<img src="https://cdn.scotch.io/303/OywqWBn0S1OJ0fJGHicR_Screen%20Shot%202017-02-20%20at%2012.46.14%20PM.png" alt="">
+Give your environment a name. I gave it the name <em>GITHUB_ENV</em>, and set up the environment variables you want as key value pairs. In this case we have <code>USERS_URL</code> and <code>USERNAME</code>.
+<img src="https://cdn.scotch.io/303/KYkVQodBT0KEZMxs6Yix_Screen%20Shot%202017-02-20%20at%2012.46.58%20PM.png" alt=""></p>
+<p>Once you are done, click on the <em>Add</em> button and close the dialog. Next, select the environment you just created from the top right drop down.
+<img src="https://cdn.scotch.io/303/neXTaCyR1WhgGpeStvSm_Screen%20Shot%202017-02-20%20at%2012.47.23%20PM.png" alt="">
+Once selected, you can confirm the values by clicking on the eye-like icon, just before the settings/gear icon.
+<img src="https://cdn.scotch.io/303/PZZF66oAT0KlaDYyE8Zt_Screen%20Shot%202017-02-20%20at%2012.48.08%20PM.png" alt=""></p>
+<p><strong>NOTE:</strong> Make sure the <code>USERS_URL</code> doesn't have an extra slash <code>/</code> at the end. (I made that mistake). You can click on the eye icon, and click on edit to change it.</p>
+<p>Now go back to the <code>GET</code> request, and replace the values with angular-like or laravel-blade like template strings, <code>{{USERS_URL}}/{{USERNAME}}</code>.
+<img src="https://cdn.scotch.io/303/EJDo18g0TWevTGNfA2Hb_Screen%20Shot%202017-02-20%20at%201.25.42%20PM.png" alt=""></p>
+<p>In a nutshell, that's how environment variables are added and used in Postman. You can use the same two calibraces syntax to add query parameters and post parameters. </p>
+<p>As an example, if the above request took query parameters, we'd have something similar to this, <code>{{USERS_URL}}/{{USERNAME}}?query={{SOME_QUERY}}</code>
+<img src="https://cdn.scotch.io/303/jP00x5sKQriuJPNYf5TO_Screen%20Shot%202017-02-20%20at%202.59.44%20PM.png" alt=""></p>
+<p>Let's add two tests  to wrap up this request. </p>
+<pre data-title="javascript" class=" language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> jsonData <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>responseBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token punctuation">{</span> login <span class="token punctuation">}</span> <span class="token operator">=</span> jsonData<span class="token punctuation">;</span>
+
+tests<span class="token punctuation">[</span><span class="token string">"Gets the correct username"</span><span class="token punctuation">]</span> <span class="token operator">=</span> login <span class="token operator">===</span> <span class="token string">"scotch-io"</span><span class="token punctuation">;</span>
+
+tests<span class="token punctuation">[</span><span class="token string">"Status code is 200"</span><span class="token punctuation">]</span> <span class="token operator">=</span> responseCode<span class="token punctuation">.</span>code <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">;</span>
+
+tests<span class="token punctuation">[</span><span class="token string">"Content-Type is present"</span><span class="token punctuation">]</span> <span class="token operator">=</span> postman<span class="token punctuation">.</span><span class="token function">getResponseHeader</span><span class="token punctuation">(</span><span class="token string">"Content-Type"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p><img src="https://cdn.scotch.io/303/IqvWaLSguUprrTpx5wAb_Screen%20Shot%202017-02-20%20at%201.19.28%20PM.png" alt="">
+I've used <code>responseCode.code</code> and <code>postman.getResponseHeader</code> which are global variables and methods which come with Postman. You can read more about them <a href="https://www.getpostman.com/docs/testing_examples">here</a></p>
+<p>To get a bit fancy, you can use a test, to set an environment variable. If you look at the snippets provided when you go to the tests tab in the request area, you'll see a <em>set environment variable snippet</em> which looks like this <code>postman.setEnvironmentVariable("variable_key", "variable_value");</code>.</p>
+<p>We could therefore set an environment variable, and then use it in subsequent requests. A good example for this is getting an authentication token and using it as a header or query parameter for subsequent requests.</p>
+<h2 id="newman-cli"><a href="#newman-cli"><span class="icon">#</span> Newman CLI</a></h2>
+<p>Once you've set up all your collections and written tests for them, it may be tedious to go through them one by one, clicking send to see if a given collection test passes. </p>
+<p>This is where <a href="https://github.com/postmanlabs/newman">Newman</a> comes in.</p>
+<blockquote>
+<p>Newman is a command-line collection runner for postman</p>
+</blockquote>
+<p>All you need to do is export your collection and the environment variables, then use Newman to run the tests from your terminal. </p>
+<p><strong>NOTE</strong>: Make sure you've clicked on <em>Save</em> to save your collection first before exporting.</p>
+<p>So the first step is to export your collection and environment variables. Click on the Menu icon for <strong>Github API</strong> collection, and select export
+<img src="https://cdn.scotch.io/303/A7QlRS9HSDG01IecQ1Wl_Screen%20Shot%202017-02-20%20at%201.31.18%20PM.png" alt="">
+Select version 2, and click on <em>Export</em>
+<img src="https://cdn.scotch.io/303/REpIoVaaR3SaEtI9A9F9_Screen%20Shot%202017-02-20%20at%201.31.38%20PM.png" alt="">
+Save the JSON file in a location you can access with your terminal. I created a directory called <em>postman</em> and saved it there.</p>
+<p>Next, click on the settings/gear icon and select <em>Manage Enironments</em> again, then click on the download icon to download the <strong>GITHUB_ENV</strong> environment
+<img src="https://cdn.scotch.io/303/ekpRBVSXRCqUP9eCLqXn_Screen%20Shot%202017-02-20%20at%201.32.20%20PM.png" alt="">
+Save the file in the same directory as the collection.</p>
+<p>Install Newman CLI globally, then navigate to the where you saved the collection.</p>
+<pre data-title="bash" class=" language-bash"><code class=" language-bash">npm <span class="token function">install</span> -g newman
+<span class="token function">cd</span> postman</code></pre>
+<p>Using Newman is quite straight foreward, and the documentation is extensive. You can even require it as a Node.js module and run the tests there. We'll however use the CLI.</p>
+<p>Once you are in the directory, run <code>newman run &lt;collection_name.json&gt;</code>, replacing the <em>collection_name</em> with the name you used to save the collection.</p>
+<pre data-title="bash" class=" language-bash"><code class=" language-bash">newman run Github\ API.postman_collection.json</code></pre>
+<p>The result for this is
+<img src="https://cdn.scotch.io/303/wxLfzjiR0culosXXtTBg_Screen%20Shot%202017-02-20%20at%201.50.44%20PM.png" alt="">
+We can see the second API test <strong>Github User Details</strong> fails, and towards the bottom there's an error message <code>Invalid URI "http:///%7B%7BUSERS_URL%7D%7D/%7B%7BUSERNAME%7D%7D"</code>.</p>
+<p>This is because we did not specify the environment file. To fix it, simply add the <code>-e</code> flag which stands for the <code>environment</code> and add the environment file.</p>
+<pre data-title="bash" class=" language-bash"><code class=" language-bash">newman run Github\ API.postman_collection.json -e GITHUB_ENV.postman_environment.json</code></pre>
+<p><img src="https://cdn.scotch.io/303/vb0fPP48QGjklbJKQzQv_Screen%20Shot%202017-02-20%20at%201.53.38%20PM.png" alt=""></p>
+<h2 id="conclusion"><a href="#conclusion"><span class="icon">#</span> Conclusion</a></h2>
+<p>Postman and Newman can be used for a number of test cases, including creating usage scenarios for your API. You can create a scenario that involves a user registering, logging in and calling different endpoints by using a straight foreward user interface. These collections can then be exported and shared with team members. If you create a team account, you can just publish them to your team mates.</p>
+<p>Happy Testing!</p>
+                                
       </div>
 
       <!-- ARTICLE FOOTER -->
