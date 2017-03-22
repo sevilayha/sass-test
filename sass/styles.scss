@@ -84,7 +84,7 @@ img     {
 
   img   {
     max-width: 100%;
-    // clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+    clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0% 100%);
   }
 
   pre   {
@@ -93,7 +93,8 @@ img     {
     color: #BBC5C7;
     border: none;
     border-radius: 0;
-    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+    border-left: 30px solid #1C1F26;
+    clip-path: polygon(0 15px, 100% 0, 100% calc(100% - 15px), 0% 100%);
   }
 
 }
