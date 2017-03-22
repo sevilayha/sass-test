@@ -8,6 +8,9 @@ $font-family-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-family-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-family-code: Consolas, monospace;
 
+$article-padding: 100px;
+$sidebar-width: 300px;
+
 // BASE STYLES ==============
 *    {
   box-sizing: border-box;
@@ -37,7 +40,7 @@ img     {
 
 // ARTICLE BASE STYLES ================
 .article   {
-  width: 1200px;
+  width: 1400px;
   max-width: 80vw;
   margin: 50px auto;
   border-radius: 5px;
@@ -81,15 +84,16 @@ img     {
 
   .article__content {
     background: $content-background;
-    padding: 100px;
-    display: grid;
-    grid-template-rows: 300px auto;
-    grid-column-gap: 100px;
-    align-self: stretch;
+    padding: $article-padding;
+    position: relative;
+    padding-left: $sidebar-width + ($article-padding * 2);
   } // .article__content
 
   .article__sidebar {
-    grid-column-start: 1;
+    position: absolute;
+    left: $article-padding;
+    right: $article-padding;
+    width: $sidebar-width;
 
     h3  {
       margin: 0 0 15px;
@@ -104,10 +108,12 @@ img     {
       margin: 0;
       padding-left: 20px;
     }
+
     li  {
       margin: 0; 
       padding: 0;
     }
+
     a   {
       font-size: 14px;
       color: lighten($text-color, 25%);
