@@ -11,10 +11,16 @@ html {
 
 body {
   font-family: $font-family-text;
-  font-size: 19px;
   line-height: 1.6; 
   color: $text-color;
   -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+  @include font-size(19px);
+
+  @media screen and (max-width: 992px) {
+    @include font-size(16px);
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
