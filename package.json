@@ -2,13 +2,20 @@
   "name": "sass-test",
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm run build-css && concurrently \"npm run watch-css\" \"npm run lite\"",
-    "build-css": "node-sass sass/main.scss css/styles.css --include-path sass --output-style compressed",
-    "watch-css": "node-sass sass/main.scss css/styles.css --include-path sass --output-style compressed --watch",
-    "lite": "lite-server"
+    "dev": "npm run gulp && concurrently \"npm run gulp-watch\" \"npm run lite\"",
+    "lite": "lite-server",
+    "gulp": "gulp",
+    "gulp-watch": "gulp watch"
   },
-  "devDependencies": { 
+  "devDependencies": {
     "concurrently": "^3.4.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-util": "^3.0.8",
     "lite-server": "^2.3.0",
     "node-sass": "^4.5.1"
   }

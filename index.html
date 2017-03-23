@@ -10,16 +10,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="single">
 
-  <div class="angle angle--giant"></div>
-
+  <main>
   <article class="article article--single">    
-
-    <!-- ARTICLE IMAGE -->
-    <div class="article__image">
-       <img src="https://scotch.io/wp-content/uploads/2017/03/8NGmy9KrRo29YNFymzhx_desktop-app-with-vue.png.jpg">
-    </div>
 
     <!-- ARTICLE HEADER -->
     <header class="article__header">
@@ -30,10 +24,22 @@
       </div>
     </header>
 
-    <div class="article__content">
+    <!-- ARTICLE IMAGE -->
+    <div class="article__image">
+       <img src="https://scotch.io/wp-content/uploads/2017/03/8NGmy9KrRo29YNFymzhx_desktop-app-with-vue.png.jpg">
+    </div>    
+
+    <!-- ACTION BUTTONS -->
+    <div class="actions">
+      <a href="#">View Code</a>
+      <a href="#">View Demo</a>
+    </div>
+
+    <!-- ARTICLE INNER (CONTENT) -->
+    <div class="article__inner">
       
       <!-- ASIDE (DETAILS, TOC, MORE) -->
-      <aside class="article__sidebar">
+      <aside class="sidebar sidebar--single"> 
         <div class="sidebar__box table-of-contents">
           <h3>&lt;ul&gt; of Contents</h3>
 
@@ -49,7 +55,7 @@
       </aside>
 
       <!-- ARTICLE BODY -->
-      <div class="article__body">
+      <div class="article__content content">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem similique excepturi non tempora dolorem? Aspernatur sed quae iure modi, suscipit ex pariatur omnis eligendi voluptas repudiandae fugit illo commodi, obcaecati.</p>
 
         <pre><code>i am a code block</code></pre>
@@ -63,6 +69,7 @@
     </div>
 
   </article>
+  </main>
 
 </body>
 </html>

@@ -1,1 +1,39 @@
 $sidebar-width: 300px;
+
+.sidebar {
+  width: $sidebar-width;  
+
+  h3  {
+    margin: 0 0 20px;
+    letter-spacing: 1px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: lighten($text-color, 20%);
+  }
+  
+  ul  {
+    list-style: none;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  li  {
+    margin: 0; 
+    padding: 0;
+  }
+
+  a   {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 10px;
+    color: lighten($text-color, 25%);
+  }
+} // .sidebar
+
+.sidebar__box   {
+  margin-bottom: 50px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

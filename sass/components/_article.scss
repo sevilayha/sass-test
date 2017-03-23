@@ -1,0 +1,13 @@
+.article {
+  position: relative;
+  display: block;
+}
+
+.article__image  {
+  text-align: center;
+  position: relative;
+
+  img   {
+    width: 100%;
+  }
+} // .article__image

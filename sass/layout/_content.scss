@@ -1,0 +1,49 @@
+/**
+ * Content styles for the body section (main content)
+ */
+.content {
+  p, pre, ul, ol, table, img, > div {
+    margin-bottom: 35px;
+  }
+
+  h2    {
+    margin-bottom: 50px;
+    margin-top: 80px;
+    font-size: 70px;
+
+    a   {
+      color: $header-text-color;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  h3  {
+    margin: 50px 0;
+    font-size: 40px;
+    color: lighten($header-text-color, 10%);
+  }
+
+  li    {
+    margin-bottom: 12px;
+  }
+
+  img   {
+    display: block;
+    margin: 35px auto;
+    max-width: 100%;
+    clip-path: polygon(0 20px, 100% 0, 100% calc(100% - 20px), 0% 100%);
+  }
+
+  pre   {
+    background: #2C303B;
+    padding: 80px 50px;
+    color: #BBC5C7;
+    border: none;
+    border-radius: 0;
+    border-left: 30px solid #1C1F26;
+    clip-path: polygon(0 15px, 100% 0, 100% calc(100% - 15px), 0% 100%);
+  }
+} // .content

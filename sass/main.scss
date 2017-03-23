@@ -1,9 +1,18 @@
-@import 'base/reset';
-@import 'base/base';
-@import 'base/typography';
+@import
+  'base/reset',
+  'base/base',
+  'base/typography';
 
-@import 'components/buttons';
-@import 'components/meta';
-@import 'components/sidebar';
+@import
+  'components/article',
+  'components/angles',
+  'components/buttons',
+  'components/actions',
+  'components/meta',
+  'components/sidebar';
 
-@import 'layout/article';
+@import
+  'layout/content';
+
+@import
+  'pages/single';
