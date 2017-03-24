@@ -3,10 +3,12 @@ const gulp = require('gulp')
 
 gulp.task('styles', () => {
   gulp.src('./sass/**/*.scss')
-    .pipe(plugins.sass())
+    .pipe(plugins.sass({
+      outputStyle: 'compressed',
+      includePaths: ['sass', 'node_modules/bootstrap-sass/assets/stylesheets']
+    }))
     .on('error', plugins.sass.logError)
     .pipe(plugins.autoprefixer())
-    .pipe(plugins.cssmin())
     .pipe(plugins.rename('styles.css'))
     .pipe(gulp.dest('./css'));
 });
