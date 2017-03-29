@@ -7,6 +7,7 @@ main  {
  */
 .content {
   p, pre, ul, ol, table, img, > div {
+    margin-top: 0;
     margin-bottom: 35px;
   }
 

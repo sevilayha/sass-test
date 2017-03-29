@@ -4,6 +4,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-right: 20px;
 
   > div, > nav {
     flex: 0;
@@ -24,14 +25,14 @@
       display: inline-block;
     }
 
-    a   {
-      transition: 0.3s ease color;
+    a   {      
       text-decoration: none;
       color: #CCC;
       font-size: 15px;
       display: block;
-      padding: 0 10px; 
+      padding: 20px 10px; 
       letter-spacing: 0.8px;
+      transition: 0.3s ease color;
 
       &:hover {
         color: #FFF;
@@ -61,7 +62,7 @@
       svg {
         max-width: 100%;
         max-height: 65%;
-        margin-bottom: 2px;
+        margin-bottom: 2px;        
       }
 
       .text {
@@ -75,8 +76,6 @@
 
   // MAIN NAV ===================================
   .main-nav   {
-    margin-right: 20px;
-
     ul    {
       list-style: none;
       margin: 0;
@@ -89,39 +88,55 @@
 
   // SEARCH ======================================
   .search-bar     {
+    $search-bar-background: #444;
+
+    margin-left: 30px;
+    margin-right: 30px;
+
     .search-form  {
       position: relative;
       display: flex;
       align-items: center;
-      background: #666;
-      border-radius: 3px;
-      transition: 0.3s ease background;
-
-      &:focus {
-        background: #FFF;
-
-        .search-icon svg {
-          fill: #BBB;
-        }
-      }
 
       .search-icon  {  
+        position: absolute;
+
         svg         {
           fill: rgba(255, 255, 255, 0.75);
           margin-top: 10px;
           margin-left: 15px;
           height: 24px;
           width: 24px;
+          transition: 0.3s ease fill;
         }
       }
 
       input[type=search]  {
         border: 0;
-        background: none;
         width: 100%;
-        padding: 10px;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
+        background: $search-bar-background;
+        border-radius: 3px;
+        padding: 18px 0 18px 50px;        
+        outline: none;
+        font-size: 15px;
+        color: #EEE;
+        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) all;
+
+        &:hover   {
+          background: lighten($search-bar-background, 5%);
+        }
+
+        &:focus   {
+          background: #FFF;
+          width: 90%;
+          color: $search-bar-background;
+        }
+        &:focus ~ .search-icon svg {
+          fill: $search-bar-background;
+        }
+        
       }
     }
   }
@@ -129,8 +144,6 @@
   // USER NAV ====================================
   .user-nav   {
     text-align: right;
-    margin-left: 20px;
-    margin-right: 20px;
   }
 
 } 

@@ -1,4 +1,6 @@
 $article-padding: 100px;
+$sidebar-width: 300px;
+
 /** 
  * Single article styles
  */
@@ -23,9 +25,13 @@ $article-padding: 100px;
   } // .article__header  
 
   .article__image {
+    display: flex;
+
     img   {
       position: relative;
       z-index: 2;
+      height: auto;
+      width: 100%;
     }
   } // .article__image
 
@@ -43,8 +49,7 @@ $article-padding: 100px;
   .sidebar {
     padding-right: ($article-padding / 2);
     margin-right: ($article-padding / 2);
-    flex: 0 0 300px;
-    border-right: 1px solid #F2F2F2;
+    flex: 0 0 ($sidebar-width + ($article-padding / 2));
   }
 
   @media screen and (max-width: 992px) {
