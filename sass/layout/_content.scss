@@ -1,6 +1,7 @@
 $content-width: 1200px;
 $content-padding: 100px;
 $content-offset: 70px;
+$content-bottom-margin: 33px;
 
 main  {
   position: relative;
@@ -19,13 +20,28 @@ main  {
 .content {
   p, pre, ul, ol, table, img, > div {
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: $content-bottom-margin;
   }
 
   h2    {
     @include font-size(50px);
     margin: 50px 0;
     line-height: 1.2;
+    position: relative;
+
+    // the hashtag #
+    // span.icon   {
+    //   @include absolute(-10px, 0, 0, -($content-offset * 1.3));
+    //   @include center-flex;
+      
+    //   background: #FFF;
+    //   position: absolute; 
+    //   width: 80px;
+    //   height: 80px; 
+    //   z-index: 9;
+    //   border-radius: 100%;
+    //   box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.10);
+    // }
 
     a   {
       color: $header-text-color;
@@ -54,11 +70,11 @@ main  {
 
   img   {
     display: block;
-    margin: 0 auto 40px;
+    margin: 0 auto ($content-bottom-margin + 10);
     border-radius: 5px;
     max-width: 100%;
 
-    box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.1);
+    box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.05);
   }
 
   p code {
@@ -78,13 +94,46 @@ main  {
     color: #BBB;
     border: none;
     border-radius: 5px;
-    margin-bottom: 40px;
+    margin-bottom: ($content-bottom-margin + 10);
     position: relative;
-    padding: $content-offset;
+    padding: $content-offset $content-offset ($content-offset / 2);
     margin-left: -$content-offset;
     margin-right: -$content-offset;
     z-index: 1;
-
     box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+
+    &:before {
+      content: attr(data-title);
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 30px;
+      text-align: right;
+      color: #888;
+      font-weight: bold;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 5px rgba(42, 42, 42, 0.5);
+      background-color: lighten(#333, 10%);
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+      background-color: lighten(#333, 10%);
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #111;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
   }
 } // .content

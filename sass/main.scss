@@ -1,18 +1,28 @@
 @import 
-  'bootstrap/normalize',
   'bootstrap/variables',
   'bootstrap/mixins',
-  'bootstrap/utilities',
-  'bootstrap/alerts',
-  'bootstrap/badges',
-  'bootstrap/breadcrumbs',
-  'bootstrap/buttons',
+
+  'bootstrap/normalize',
+  'bootstrap/print',
+
+  'bootstrap/scaffolding',
+  'bootstrap/type',
+  'bootstrap/code',
   'bootstrap/grid',
-  'bootstrap/input-groups',
-  'bootstrap/jumbotron',
-  'bootstrap/labels',
   'bootstrap/tables',
-  'bootstrap/forms';
+  'bootstrap/forms',
+  'bootstrap/buttons',
+
+  'bootstrap/input-groups',
+  'bootstrap/labels',
+  'bootstrap/jumbotron',
+  'bootstrap/alerts',
+  'bootstrap/media',
+  'bootstrap/responsive-embed',
+  'bootstrap/close',
+
+  'bootstrap/utilities',
+  'bootstrap/responsive-utilities';
 
 @import
   'base/reset',

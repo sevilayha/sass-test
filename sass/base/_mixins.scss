@@ -8,11 +8,21 @@
   font-size: calculateRem($size);
 }
 
-/**
- * Cross browser compatible border-radius
- */
-@mixin border-radius($size) {
-  -webkit-border-radius: $size;
+@mixin border-top-radius($radius) {
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+  border-bottom-left-radius: $radius;
+  border-top-left-radius: $radius;
 }
 
 @mixin center-block {
@@ -21,7 +31,13 @@
   margin-right: auto;
 }
 
-@mixin abs-pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
   top: $top;
   right: $right;
   bottom: $bottom;
