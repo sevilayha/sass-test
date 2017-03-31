@@ -1,56 +1,74 @@
-$article-padding: 100px;
+$article-padding: 50px;
 $sidebar-width: 300px;
 
 /** 
  * Single article styles
  */
 .article--single {
-  width: 1300px;
-  max-width: 90vw;
-  margin: 0 auto 100px;
-  border-radius: 5px;      
-
   .article__header    {
     text-align: center;
-    padding: 30px 20px;
+    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/topography.png');
+    padding-top: 30px;
+    padding-bottom: 80px;
     
     h1          {
-      font-size: 70px;
+      @include font-size(40px);
+      
       line-height: 1.4;
       margin: 0 0 20px;
-      padding: 0;  
-      mix-blend-mode: multiply;     
+      padding: 0;   
       position: relative;
     }
   } // .article__header  
 
   .article__image {
-    display: flex;
+    position: relative;
+    margin-top: 30px;
 
     img   {
       position: relative;
-      z-index: 2;
+      border-radius: 5px;
       height: auto;
       width: 100%;
+      box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.25);
+    }
+
+    .author   {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #FFF;
+    }
+
+    .share-links  {
+      position: absolute;
+      font-size: 12px;
+      top: 20px;
+      right: 20px;
     }
   } // .article__image
 
-  .article__inner {
-    background: $content-background;
-    padding: $article-padding; 
-    position: relative; 
-    display: flex; 
+  .article__inner {    
+    position: relative;     
+    min-height: 800px;
   } // .article__inner
 
-  .article__body  {
-    
-  } // .article__body
-
   .sidebar {
-    padding-right: ($article-padding / 2);
-    margin-right: ($article-padding / 2);
-    flex: 0 0 ($sidebar-width + ($article-padding / 2));
+    padding: $article-padding;
+    padding-left: 0;
+    width: ($sidebar-width + $article-padding);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    // background: #F9F9F9;
+    border-right: 1px solid #DDD;
   }
+
+  .article__content  {
+    padding-bottom: $article-padding; 
+    padding-top: $article-padding; 
+    margin-left: ($sidebar-width + ($article-padding * 2)); 
+  } // .article__content  
 
   @media screen and (max-width: 992px) {
     .article__inner  {

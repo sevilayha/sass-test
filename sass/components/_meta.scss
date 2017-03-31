@@ -1,4 +1,25 @@
 .article__meta   {
+  @include font-size(15px);
+  
   color: lighten($text-color, 15%); 
-  font-size: 14px;
+  display: flex;
+  justify-content: center;
+
+  a   {
+    color: #696969;
+    text-decoration: none;
+    transition: 0.3s ease color;
+
+    &:hover   {
+      color: #333;
+    }
+  }
+
+  .meta__box {
+    margin-right: 30px; 
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

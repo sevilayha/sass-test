@@ -18,18 +18,24 @@
   'base/reset',
   'base/base',
   'base/mixins',
+  'base/colors',
   'base/typography';
 
 @import
   'components/article',
   'components/angles',
+  'components/tags',
   'components/buttons',
   'components/actions',
   'components/meta',
-  'components/sidebar';
+  'components/sidebar',
+  'components/shares',
+  'components/author',
+  'components/search-bar';
 
 @import
   'layout/header',
+  'layout/footer',
   'layout/content';
 
 @import
