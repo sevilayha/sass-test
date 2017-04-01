@@ -35,7 +35,7 @@ main  {
 
     // the hashtag #
     span.icon   {
-      @include absolute(-50px, 0, 0, -35px);
+      @include absolute(-50px, 0, 0, -40px);
       color: #EEE;
       font-size: 120px;
       z-index: -1;
@@ -76,7 +76,8 @@ main  {
   }
 
   p code {
-    font-size: 75%;
+    @include font-size(11px);
+
     background: #E6F2F6;
     color: #256FC7;
     border-radius: 4px;
@@ -85,9 +86,15 @@ main  {
     padding: 1px 6px;
   }
 
-  pre   {
-    @include font-size(14px);
+  code[class*=language-], pre[class*=language-] {
+    font-family: $font-family-code;
+    tab-size: 2;
+  }
 
+  pre   {
+    @include font-size(13px);
+    
+    line-height: 1.8; 
     background: #2F2F2F;
     color: #BBB;
     border: none;
@@ -98,7 +105,7 @@ main  {
     margin-left: -$content-offset;
     margin-right: -$content-offset;
     z-index: 1;
-    box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.15);
+    box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.25);
 
     &:before {
       content: attr(data-title);
