@@ -1,33 +1,74 @@
-const gulp = require('gulp')
-  plugins  = require('gulp-load-plugins')();
+const gulp = require('gulp'),
+  plugins  = require('gulp-load-plugins')(),
+  merge2   = require('merge2');
 
-gulp.task('styles', () => {
-  return gulp.src('./sass/**/*.scss')
-    .pipe(plugins.sass({
-      outputStyle: 'compressed',
-      includePaths: ['sass', 'node_modules/bootstrap-sass/assets/stylesheets']
-    }))
-    .on('error', plugins.sass.logError)
-    .pipe(plugins.autoprefixer())
-    .pipe(plugins.rename('styles.css'))
-    .pipe(gulp.dest('./dist/css'));
-});
+const files = { 
+  // css files -----------------------------------------------------------------
+  cssLibs: [
+    './node_modules/prismjs/themes/prism-okaidia.css'
+  ],
+  css: [
+    './src/sass/**/*.scss'
+  ],
 
-gulp.task('scripts', () => {
-  return gulp.src([
+  // js files ------------------------------------------------------------------
+  jsLibs: [
     './node_modules/algoliasearch/dist/algoliasearch.min.js',
-    './node_modules/autocomplete/lib/autocomplete.js',
-    './js/**/*.js'
-  ])
-    .pipe(plugins.plumber())
-    .pipe(plugins.babel({ presets: ['es2015'] }))
-    .pipe(plugins.uglify())
-    .pipe(plugins.concat('spells.min.js'))
-    .pipe(gulp.dest('./dist/js'));
+    './node_modules/autocomplete.js/dist/autocomplete.min.js',
+  ],
+  js: [
+    './src/js/**/*.js'
+  ]
+};
+
+/**
+ * Styles Task
+ */
+gulp.task('styles', () => {
+  return merge2(
+    gulp.src(files.cssLibs)
+        .pipe(plugins.concat('libs.min.css'))
+        .pipe(plugins.cssmin()),
+    gulp.src(files.css)
+        .pipe(plugins.sass({
+          outputStyle: 'compressed',
+          includePaths: ['sass', 'node_modules/bootstrap-sass/assets/stylesheets']
+        }))
+        .on('error', plugins.sass.logError)
+        .pipe(plugins.autoprefixer())
+        .pipe(plugins.rename('styles.min.css'))
+  )
+    .pipe(plugins.concat('paint.min.css'))
+    .pipe(gulp.dest('./dist/css'));    
 });
 
-gulp.task('watch', () => {
+/**
+ * Scripts Task
+ */
+gulp.task('scripts', () => {
+  return merge2(
+    gulp.src(files.jsLibs)
+        .pipe(plugins.concat('libs.min.js'))
+        .pipe(plugins.uglify()),
+    gulp.src(files.js)
+        .pipe(plugins.plumber())
+        .pipe(plugins.babel({ presets: ['es2015'] }))
+        .pipe(plugins.concat('spells.min.js'))
+        .pipe(plugins.uglify())
+  )
+    .pipe(plugins.concat('magic.min.js'))
+    .pipe(gulp.dest('./dist/js'));    
+});
+
+/**
+ * Watch Task
+ */
+gulp.task('watch', ['styles', 'scripts'], () => {
   gulp.watch('./sass/**/*.scss', ['styles']);
+  gulp.watch('./js/**/*.js', ['scripts']);
 })
 
-gulp.task('default', ['styles']);
+/**
+ * Default Task
+ */
+gulp.task('default', ['styles', 'scripts']);
