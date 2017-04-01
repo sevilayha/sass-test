@@ -1,5 +1,6 @@
 $article-padding: 50px;
 $sidebar-width: 300px;
+$article-header-background: #3A4570;
 
 /** 
  * Single article styles
@@ -8,17 +9,26 @@ $sidebar-width: 300px;
   .article__header    {
     position: relative;
     text-align: center;
-    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/topography.png');
-    // background: #FDCC18;
+    // background: url('https://www.toptal.com/designers/subtlepatterns/patterns/sativa.png');
+    background: $article-header-background;    
     padding-top: 30px;
     
     h1          {
       @include font-size(50px);
       
+      color: #FFF;
       line-height: 1.4;
       margin: 0 0 20px;
       padding: 0;   
       position: relative;
+    }
+
+    .article__meta  {
+      color: #DDD;
+
+      a {
+        color: #DDD;
+      }
     }
   } // .article__header  
 
@@ -55,8 +65,8 @@ $sidebar-width: 300px;
     bottom: -100px;
     left: 0;
     right: 0;
-    background: url('https://www.toptal.com/designers/subtlepatterns/patterns/topography.png');
-    // background: #FDCC18;
+    // background: url('https://www.toptal.com/designers/subtlepatterns/patterns/sativa.png');
+    background: $article-header-background;
     height: 300px;    
     transform: skewY(-5deg); 
     z-index: 1;
@@ -64,7 +74,7 @@ $sidebar-width: 300px;
 
   .actions {
     z-index: 2;
-  }
+  } 
 
   .article__inner {    
     position: relative;     

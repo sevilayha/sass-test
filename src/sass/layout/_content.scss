@@ -32,13 +32,15 @@ main  {
     margin: 50px 0;
     line-height: 1.2;
     position: relative;
+    
 
     // the hashtag #
     span.icon   {
-      @include absolute(-50px, 0, 0, -40px);
-      color: #EEE;
+      @include absolute(-50px, 0, 0, -30px);
+      color: #F2F2F2;
       font-size: 120px;
       z-index: -1;
+      transition: 0.3s ease all; 
     }
 
     a   {
@@ -47,7 +49,11 @@ main  {
       transition: 0.3s ease all; 
 
       &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+
+        span.icon {
+          color: #BBB;
+        }
       }
     }
 
