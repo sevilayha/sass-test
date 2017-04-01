@@ -1,7 +1,7 @@
 $header-height: 60px;
 $header-spacer-width: 30px;
 $nav-background: #222;
-$nav-color: #EEE;
+$nav-color: #CCC;
 
 body {
   padding-top: $header-height;
@@ -51,6 +51,8 @@ body {
     letter-spacing: 0.5px;
     text-decoration: none;
     color: $nav-color;
+    text-transform: uppercase;
+    font-weight: bold;
     transition: 0.3s ease color;
 
     &:hover {
@@ -92,61 +94,7 @@ body {
   }
 
   // SEARCH ======================================
-  .search-bar     {
-    $search-bar-background: #545454;
-
-    margin-left: $header-spacer-width;
-    margin-right: $header-spacer-width;
-
-    .search-form  {
-      position: relative;
-      display: flex;
-      align-items: center;
-
-      .algolia-autocomplete {
-        width: 100%;
-      }
-
-      .search-icon  {  
-        position: absolute;
-
-        svg         {
-          fill: rgba(255, 255, 255, 0.75);
-          margin-top: 10px;
-          margin-left: 15px;
-          height: 24px;
-          width: 24px;
-          transition: 0.3s ease fill;
-        }
-      }
-
-      #aa-search-input  {
-        border: 0;
-        width: 100%;
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-        background: $search-bar-background !important;
-        color: #EEE !important;
-        border-radius: 3px;
-        padding: 12px 20px;   
-        outline: none;
-        font-size: 15px;
-        transition: 0.2s ease all;
-
-        &:hover   {
-          background: lighten($search-bar-background, 2%) !important;
-        }
-
-        &:focus   {
-          padding-bottom: 15px;
-          padding-top: 15px;
-          background: #FFF !important;
-          color: $search-bar-background !important;
-        }
-        
-      }
-    }
-  }
+  
 
   // USER NAV ====================================
   .user-nav   {
