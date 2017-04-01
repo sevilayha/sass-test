@@ -102,6 +102,9 @@
       <div class="actions">
           <a href="#">View Code</a>
           <a href="#">View Demo</a>
+          <a href="#">Download</a>
+          <a href="#">View Project</a>
+          <a href="#">View Site</a>
       </div>
 
       <!-- ARTICLE INNER (CONTENT) -->
@@ -132,15 +135,15 @@
         <div class="article__content content">
                                 <p> AngularJS provides a great way to make single page applications. When creating single page applications, routing will be very important. We want our navigation to feel like a normal site and still not have our site refresh. We’ve already gone through Angular routing using the normal <a href="https://scotch.io/tutorials/javascript/single-page-apps-with-angularjs-routing-and-templating">ngRoute method</a>.</p>
 <p>Today we’ll be looking at routing using <a href="https://github.com/angular-ui/ui-router" target="_blank">UI-Router</a>.</p>
-<h2 id="overview"><a href="#overview"><span class="icon">#</span> Overview</a></h2>
+<h2>Overview</h2>
 <h3>What is AngularUI Router?</h3>
 <p>The UI-Router is a routing framework for AngularJS built by the <a href="https://angular-ui.github.io/" target="_blank">AngularUI team</a>. It provides a different approach than ngRoute in that it changes your application views based on <strong>state of the application</strong> and not just the route URL.</p>
 <h3>States vs URL Route</h3>
 <p>With this approach, your views and routes aren’t tied down to the site URL. This way, you can change the parts of your site using your routing even if the URL does not change.</p>
 <p>When using ngRoute, you’d have to use ngInclude or other methods and this could get confusing. Now that all of your states, routing, and views are handled in your one <code>.config()</code>, this would help when using a top-down view of your application.</p>
-<h2 id="sample-application"><a href="#sample-application"><span class="icon">#</span> Sample Application</a></h2>
+<h2>Sample Application</h2>
 <p>Let’s do something similar to the other <a href="http://plnkr.co/edit/dd8Nk9PDFotCQu4yrnDg?p=preview" target="_blank">routing tutorial</a> we made. Let’s create a <strong>Home</strong> and <strong>About</strong> page.</p>
-<h2 id="setup"><a href="#setup"><span class="icon">#</span> Setup</a></h2>
+<h2>Setup</h2>
 <p>Let’s get our application started. We will need a few files:</p>
 <pre data-title="javascript" class=" language-javascript"><code class=" language-javascript">
 <span class="token operator">-</span> index<span class="token punctuation">.</span>html                    <span class="token comment" spellcheck="true">// will hold the main template for our app</span>
@@ -237,7 +240,7 @@ routerApp<span class="token punctuation">.</span><span class="token function">co
 </pre>
 <p>Now we have our site! It doesn’t do much, but we have it.</p>
 <p><a href="https://cask.scotch.io/2014/03/angular-ui-router-home-first.png"><img src="https://cask.scotch.io/2014/03/angular-ui-router-home-first.png" alt="angular-ui-router-home-first" width="981" height="405" class="alignnone size-full wp-image-2055 img-responsive img-thumbnail"></a> With the boring normal stuff out of the way, let’s get to see why UI-Router has some pretty cool features.</p>
-<h2 id="nested-views-home-page"><a href="#nested-views-home-page"><span class="icon">#</span> Nested Views Home Page</a></h2>
+<h2>Nested Views Home Page</h2>
 <p>Let’s look at how we can nest views. We’ll add two buttons to our home page and from there, we will want to show off different information based on what is clicked.</p>
 <p>We’re going to add our buttons to <code>partial-home.html</code> and then go into our Angular file and see how we can change it to add nested views.</p>
 <pre data-line="7-8, 11" data-title="markup" class=" language-markup"><code class=" language-markup"><span class="token comment" spellcheck="true">&lt;!-- partial-home.html --&gt;</span>

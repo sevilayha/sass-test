@@ -5,7 +5,7 @@ const gulp = require('gulp'),
 const files = { 
   // css files -----------------------------------------------------------------
   cssLibs: [
-    './node_modules/prismjs/themes/prism-okaidia.css'
+    './node_modules/prism-themes/themes/prism-atom-dark.css'
   ],
   css: [
     './src/sass/**/*.scss'

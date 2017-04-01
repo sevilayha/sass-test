@@ -23,7 +23,8 @@
     "gulp-util": "^3.0.8",
     "lite-server": "^2.3.0",
     "merge2": "^1.0.3",
-    "node-sass": "^4.5.1"
+    "node-sass": "^4.5.1",
+    "prism-themes": "^1.0.0"
   },
   "dependencies": {
     "algoliasearch": "^3.22.1",

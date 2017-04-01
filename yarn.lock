@@ -2562,12 +2562,6 @@ meow@^3.3.0, meow@^3.7.0:
     redent "^1.0.0"
     trim-newlines "^1.0.0"
 
-merge-stream@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-1.0.1.tgz#4041202d508a342ba00174008df0c251b8c135e1"
-  dependencies:
-    readable-stream "^2.0.1"
-
 merge2@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.0.3.tgz#fa44f8b2262615ab72f0808a401d478a70e394db"
@@ -3020,6 +3014,10 @@ preserve@^0.2.0:
 pretty-hrtime@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/pretty-hrtime/-/pretty-hrtime-1.0.3.tgz#b7e3ea42435a4c9b2759d99e0f201eb195802ee1"
+
+prism-themes@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/prism-themes/-/prism-themes-1.0.0.tgz#58089547ed39df273e5195e1628c69177341bf88"
 
 prismjs@^1.6.0:
   version "1.6.0"
