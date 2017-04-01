@@ -39,7 +39,7 @@ function addLinkToTableOfContents(text, slug) {
   const linkItem = document.createElement('li');
 
   linkItem.innerHTML = `
-    <a href="#${slug}}">
+    <a href="#${slug}">
       ${text}
     </a>
   `;

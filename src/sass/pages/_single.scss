@@ -36,9 +36,12 @@ $article-header-background: #3A4570;
     position: relative;
     margin-top: 30px;
 
+    img, .author, .share-links {
+      z-index: 2;
+    }
+
     img   {
       position: relative;
-      z-index: 2;
       border-radius: 5px;
       height: auto;
       width: 100%;
