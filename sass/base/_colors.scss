@@ -7,7 +7,7 @@ $social-colors: (
 @each $name, $color in $social-colors {
   .color-#{$name} {
     color: $color;
-    transition: 0.3s ease color;
+    transition: 0.3s ease all;
 
     &:hover   {
       background: lighten($color, 10%);
@@ -17,7 +17,7 @@ $social-colors: (
   .background-#{$name} {
     background: $color;
     color: #FFF;
-    transition: 0.3s ease background;
+    transition: 0.3s ease all;
 
     &:hover   {
       background: lighten($color, 10%);
