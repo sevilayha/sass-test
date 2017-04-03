@@ -1,0 +1,32 @@
+/**
+ * The fatty (super-wide) promos in article content
+ */
+.fatty  {
+  background: #2D2832;
+  padding: 80px; 
+  border-radius: $base-border-radius;
+  color: #BBB;
+  position: relative;
+  z-index: 2;
+}
+
+.fatty--newsletter {
+  h4  {
+    color: #FFF;
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  input, button   {
+    @include center-block;
+    
+    width: 800px;
+  }
+
+  input[type=email] {
+    display: block;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+}
