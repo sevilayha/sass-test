@@ -1,3 +1,7 @@
+@mixin base-box-shadow($opacity: 0.25) {
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, $opacity);
+}
+
 @function calculateRem($size) {
   $rem-size: $size / 16px;
   @return $rem-size * 1rem;
