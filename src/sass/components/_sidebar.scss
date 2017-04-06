@@ -1,5 +1,10 @@
 $sidebar-width: 300px;
 
+.sidebar__sticky-icky.stuck  {
+  position: fixed;
+  width: $sidebar-width;
+}
+
 .sidebar {
   width: $sidebar-width;  
 

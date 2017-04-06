@@ -12,7 +12,7 @@
 </head>
 <body class="single">
 
-  <header id="scotch-top">
+  <header id="site__header">
     <div class="scotch-top-logo">
       <a href="https://scotch.io">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="479" height="825" viewBox="0 0 479 825">
@@ -126,8 +126,13 @@
             </ul>
           </div>
 
-          <div class="sidebar__box ad ad--sidebar">
-            <img src="http://placekitten.com/g/300/250">
+          <div 
+            class="sidebar__sticky-icky stick-this" 
+            data-parent-element=".sidebar"
+            data-offset-top="100">
+              <div class="sidebar__box ad ad--sidebar">
+                <img src="http://placekitten.com/g/300/250">
+              </div>
           </div>
         </aside>
 
