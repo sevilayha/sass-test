@@ -12,10 +12,11 @@ document.addEventListener('scroll', debounce(() => {
  * @param {node} element The element to stick
  */
 function stickTheThing(element) {
+  if (isMobile()) return;
+
   const offsetTop = element.dataset.offsetTop;
   wrapTheStickyThing(element);
   document.addEventListener('scroll', debounce(() => {
-
     watchScrollForStick(element, offsetTop);
   }, 10));
 }
