@@ -1,14 +1,35 @@
 const stickyElements = document.querySelectorAll('.stick-this');
+stickyElements.forEach(stickTheThing);
 
-stickyElements.forEach(element => {
-  const parentElement          = document.querySelector(element.dataset.parentElement);
-  const offsetLeft             = parentElement.getBoundingClientRect().left;
-  const offsetTop              = element.dataset.offsetTop; 
+/**
+ * Make an element sticky once it hits the top of the browser
+ * @param {node} element The element to stick
+ */
+function stickTheThing(element) {
+  const offsetTop = element.dataset.offsetTop;
+  wrapTheStickyThing(element);
+  document.addEventListener('scroll', debounce(() => {
+    watchScrollForStick(element, offsetTop);
+  }, 15));
+}
 
-  parentElement.style.position = 'relative';
+/**
+ * Wrap the sticky thing so that we can position relatively.
+ * @param {node} element The sticky element that we want
+ */
+function wrapTheStickyThing(element) {
+  const offsetLeft  = element.getBoundingClientRect().left;
+  const elementHtml = element.innerHTML;
 
-  document.addEventListener('scroll', () => debounce(stickTheThing(element, offsetTop, offsetLeft), 25));
-});
+  element.classList.remove('stick-this');
+  element.classList.add('stick-this-wrapper');
+  element.style.position = 'relative';
+  element.innerHTML = `
+    <div class="stick-this" style="left: ${offsetLeft}px">
+      ${elementHtml}
+    </div>
+  `;
+}
 
 /**
  * Function to sticky whatever we want.
@@ -16,22 +37,16 @@ stickyElements.forEach(element => {
  * @param {node} element The element that we want to be sticky
  * @param {number} offset How far off the top of the window we want it to stick
  */
-function stickTheThing(element, offsetTop = 0, offsetLeft = 0) {
+function watchScrollForStick(element, offsetTop = 0) {
+  console.count('doing');
   const topOfElement = element.getBoundingClientRect().top;
+  const stuckThing   = element.querySelector('.stick-this');
 
   if ((topOfElement - offsetTop) <= 0) {
-    console.log('sticking');
-    element.classList.add('stuck');
+    stuckThing.style.top = `${offsetTop}px`;
+    stuckThing.classList.add('stuck');
   } else {
-    console.log('unsticking');
-    element.classList.remove('stuck');
+    stuckThing.style.top = 0;
+    stuckThing.classList.remove('stuck');
   }
-}
-
-/**
- * 
- * @param {node} element Set the left and top of the element so that when it goes fixed, its in the correct spot
- */
-function positionTheStuckThing(element, top = 0, left = 0) {
-  element.style.left = left;
 }
