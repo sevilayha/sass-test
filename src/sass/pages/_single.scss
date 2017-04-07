@@ -1,6 +1,7 @@
 $article-padding: 50px;
 $sidebar-width: 300px;
 $article-header-background: #3A4570;
+$article-border: 1px solid #DDD;
 
 /** 
  * Single article styles
@@ -93,7 +94,7 @@ $article-header-background: #3A4570;
     top: 0;
     bottom: 0;
     // background: #F9F9F9;
-    border-right: 1px solid #DDD;
+    border-right: $article-border;
   }
 
   .article__content  {
@@ -120,5 +121,16 @@ $article-header-background: #3A4570;
       flex: none;
       display: none;
     }
+  }
+} // .article--single
+
+.single {
+  .article__extra {
+    border-top: $article-border;
+    padding-bottom: 50px;
+    padding-top: 50px;
+
+    // temporary
+    text-align: center;
   }
 }
