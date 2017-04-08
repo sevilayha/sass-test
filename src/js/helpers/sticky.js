@@ -5,7 +5,7 @@ stickyElements.forEach(stickTheThing);
 // watch for the footer coming into view. unstick everything
 document.addEventListener('scroll', debounce(() => {
   if (isInView('#site__footer')) unstickAllAtBottom();
-}, 10));
+}, 50));
 
 /**
  * Make an element sticky once it hits the top of the browser
@@ -18,7 +18,7 @@ function stickTheThing(element) {
   wrapTheStickyThing(element);
   document.addEventListener('scroll', debounce(() => {
     watchScrollForStick(element, offsetTop);
-  }, 10));
+  }, 50));
 }
 
 /**
@@ -55,13 +55,22 @@ function watchScrollForStick(element, offsetTop = 0) {
     if (stuckThing.classList.contains('stuck')) return;
 
     stuckThing.style.top = `${offsetTop}px`;
-    stuckThing.classList.add('stuck');
+    addRemoveStickClasses(stuckThing);
   } else {
     if (!stuckThing.classList.contains('stuck')) return;
 
-    stuckThing.style.top = 0;
+    stuckThing.style.top = 'auto';
     stuckThing.classList.remove('stuck');
   }
+}
+
+function addRemoveStickClasses(element) {
+  element.classList.add('sticking-start');
+
+  element.addEventListener('transitionend', () => {
+    element.classList.remove('sticking-start');
+    element.classList.add('stuck');
+  });
 }
 
 /**

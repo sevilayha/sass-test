@@ -1,3 +1,10 @@
+.stick-this       {
+  transition: 0.3s ease all;
+}
+.stick-this.sticking-start {
+  opacity: 0;
+}
 .stick-this.stuck {
   position: fixed;
+  opacity: 1;
 }

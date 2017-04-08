@@ -68,14 +68,13 @@ function addLinkToTableOfContents(text, slug) {
  */
 function makeTableOfContentsClickable() {
   const tableOfContents = document.querySelector('.table-of-contents');
-  const headerHeight    = document.getElementById('site__header').clientHeight;
-  console.log(headerHeight);
+  const headerHeight    = document.getElementById('site__header').clientHeight + 30;
 
   tableOfContents.addEventListener('click', (e) => {
     if (!e.target || e.target.nodeName !== 'A') return;
 
     const targetLink = (e.target.getAttribute('href')).substring(1);
     document.getElementById(targetLink).scrollIntoView({ behavior: 'smooth' });
-    window.scrollBy(0, -100);
+    setTimeout(() => window.scrollBy(0, -(headerHeight)), 0);
   });
 }
