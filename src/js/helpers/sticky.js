@@ -5,7 +5,7 @@ stickyElements.forEach(stickTheThing);
 // watch for the footer coming into view. unstick everything
 document.addEventListener('scroll', debounce(() => {
   if (isInView('#site__footer')) unstickAllAtBottom();
-}, 50));
+}, 100));
 
 /**
  * Make an element sticky once it hits the top of the browser
@@ -18,7 +18,7 @@ function stickTheThing(element) {
   wrapTheStickyThing(element);
   document.addEventListener('scroll', debounce(() => {
     watchScrollForStick(element, offsetTop);
-  }, 50));
+  }, 100));
 }
 
 /**
@@ -47,6 +47,8 @@ function wrapTheStickyThing(element) {
  */
 function watchScrollForStick(element, offsetTop = 0) {
   if (isInView('#site__footer')) return;
+
+  console.count('scrolling');
 
   const topOfElement = element.getBoundingClientRect().top;
   const stuckThing   = element.querySelector('.stick-this');
