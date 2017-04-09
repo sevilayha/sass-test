@@ -3,9 +3,38 @@ $content-padding: 100px;
 $content-offset: 70px;
 $content-bottom-margin: 33px;
 $pre-background: #2d2832;
+$bar-sides-width: 20px;
+
+@mixin black-bar-sides() {
+  position: relative;
+
+  &:before, &:after {
+    background: $dark-color;
+    position: absolute;
+    content: '';
+    display: block;
+    height: 100%;
+    width: $bar-sides-width;
+    top: 0;
+    bottom: 0;
+  }
+
+  &:before  {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+}
 
 main  {
   position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: $base-border-radius;
+
+  @include black-bar-sides;
 }
 
 .containment {

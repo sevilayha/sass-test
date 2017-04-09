@@ -1,15 +1,28 @@
 #site__footer {
-  background: $nav-background;
+  background: $dark-color;
   min-height: 500px;
 
+  ul  {
+    list-style: none;
+  }
+
   .footer__top      {
-    background: #FFF;
+    @include black-bar-sides;
+
+    background: #EEE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
     color: #696969;
+    
+    a   {
+      color: #696969;
+    }
 
     // about school
-    .footer-about   {
-
-      .footer-about-title   {
+    .footer__about   {
+      .about__title   {
         img           {
           background: #444;
           border-radius: 3px;
@@ -67,17 +80,25 @@
           background: #333;
         }
       }
-    }
+    } // .footer__about
 
     // navigation links
-    nav ul li     {
-      width: 33%;
+    .footer__links  {
+      > ul  {
+        display: flex;
+        padding-left: 0;
+      }
 
-      @media (max-width: 480px) {
-        width: auto !important;
+      > ul > li  {
+        flex: 1;
+      }
+
+      ul ul {
+        padding-left: 15px;
       }
 
       a         {
+        font-size: 16px;
         color: #777;
         letter-spacing: 0;
         margin-bottom: 3px;
@@ -94,10 +115,11 @@
           }
         }
       }
-    }
+    } // .footer__links
 
   } // ends .bottom-stuff
 
+  // ===========================================================================
   .footer__bottom  {
     color: #999;
     padding-bottom: 40px;
@@ -152,6 +174,7 @@
         margin: 0;
       }
       label             {
+        font-size: 14px;
         margin: 0 0 10px;
       }
       input             {

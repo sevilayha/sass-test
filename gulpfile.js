@@ -48,8 +48,8 @@ gulp.task('styles', () => {
 gulp.task('scripts', () => {
   return merge2(
     gulp.src(files.jsLibs)
-        .pipe(plugins.concat('libs.min.js'))
-        .pipe(plugins.uglify()),
+        .pipe(plugins.concat('libs.min.js')),
+        // .pipe(plugins.uglify()),
     gulp.src(files.js)
         .pipe(plugins.plumber())
         .pipe(plugins.babel({ presets: ['es2015'] }))

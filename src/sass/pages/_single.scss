@@ -13,6 +13,7 @@ $article-border: 1px solid #DDD;
     // background: url('https://www.toptal.com/designers/subtlepatterns/patterns/sativa.png');
     background: $article-header-background;    
     padding-top: 30px;
+    min-height: 500px;
     
     h1          {
       @include font-size(50px);
