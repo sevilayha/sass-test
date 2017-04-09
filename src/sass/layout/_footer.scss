@@ -1,4 +1,172 @@
 #site__footer {
   background: $nav-background;
   min-height: 500px;
+
+  .footer__top      {
+    background: #FFF;
+    color: #696969;
+
+    // about school
+    .footer-about   {
+
+      .footer-about-title   {
+        img           {
+          background: #444;
+          border-radius: 3px;
+          width: 70px;
+          padding: 15px 20px;
+          margin: 0 15px 10px 0;
+          float: left;
+        }
+        h4            {
+          margin: 20px 0 15px;
+          text-transform: lowercase;
+          font-size: 32px;
+          color: #696969;
+        }
+      }
+
+      p             {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #999;
+        margin-bottom: 20px;
+      }
+
+      .social-links   {
+        text-align: center;
+
+        @media (max-width: 768px) {
+          margin-bottom: 30px;
+        }
+
+        li    {
+          display: inline-block;
+        }
+
+        a     {
+          display: block;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: #E2E2E2;
+          color: #FFF;
+          padding-top: 7px;
+          text-align: center;
+          font-size: 16px;
+          margin-right: 8px;
+        }
+
+        .icon-twitter   {
+          background: #1DA1F2;
+        }
+        .icon-facebook  {
+          background: #3B5998;
+        }
+        .icon-github    {
+          background: #333;
+        }
+      }
+    }
+
+    // navigation links
+    nav ul li     {
+      width: 33%;
+
+      @media (max-width: 480px) {
+        width: auto !important;
+      }
+
+      a         {
+        color: #777;
+        letter-spacing: 0;
+        margin-bottom: 3px;
+
+        &:first-child   {
+          margin-bottom: 8px;
+        }
+
+        .misc {
+          margin-top:0;
+
+          a     {
+            color: #777;
+          }
+        }
+      }
+    }
+
+  } // ends .bottom-stuff
+
+  .footer__bottom  {
+    color: #999;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    line-height: 1;
+
+    a       {
+      color: #777;
+    }
+
+    nav     {
+      padding-top: 5px;
+
+      ul        {
+        margin-bottom: 10px;
+
+        li    {
+          display: block;
+          float: left;
+        }
+
+        a     {
+          color: #777;
+          font-size: 14px;
+          font-weight: 400;
+          margin-right: 15px;
+          letter-spacing: 0;
+          transition: 0.3s ease all;
+
+          &:hover   {
+            color: #434343;
+          }
+        }
+      }
+    }
+
+    p     {
+      font-size: 14px;
+      margin: 0 0 10px;
+
+      @media (max-width: 768px) {
+        line-height: 1.5;
+      }
+
+      &:last-child  {
+        margin-bottom: 0;
+      }
+    }
+
+    .mc_embed_signup    {
+      .form-group       {
+        margin: 0;
+      }
+      label             {
+        margin: 0 0 10px;
+      }
+      input             {
+        border: none !important;
+      }
+      input[type=email]     {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      input[type=submit]    {
+        margin: 0 !important;
+        height: 42px !important;
+        border-top-right-radius: 4px !important;
+        border-bottom-right-radius: 4px !important;
+      }
+    }
+  }
 }
