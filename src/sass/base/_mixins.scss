@@ -2,7 +2,8 @@
   box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, $opacity);
 }
 
-@function calculateRem($size) {
+// font sizing stuff ===========================================================
+@function calculateRem($size: 16px) {
   $rem-size: $size / 16px;
   @return $rem-size * 1rem;
 }
