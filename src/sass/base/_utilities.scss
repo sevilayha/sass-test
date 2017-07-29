@@ -1,13 +1,97 @@
+// flexbox centering ===========================================================
+@mixin center-flex($type: 'all') {
+  display: flex;
+
+  @if $type == 'all' {
+    justify-content: center;
+    align-items: center;
+  } @else if $type == 'horizontal' {
+    justify-content: center;
+  } @else if $type == 'vertical' {
+    align-items: center;
+  }
+}
+
 .center-flex   {
-  display: flex; 
-  justify-content: center;
-  align-content: center;
+  @include center-flex;
 }
 .center-flex-h {
-  display: flex;
-  justify-content: center;
+  @include center-flex('horizontal');
 }
 .center-flex-v {
-  display: flex;
-  align-items: center;
+  @include center-flex('vertical');
+}
+
+// positioning utilities =======================================================
+$sizes: (
+  '0': 0,
+  'xs': 5px,
+  'sm': 12px,
+  '': 20px,
+  'md': 30px,
+  'lg': 60px
+);
+$positionsP: (
+  'a': 'padding',
+  'y': 'padding-top' 'padding-bottom',
+  'x': 'padding-left' 'padding-right',
+  't': 'padding-top',
+  'r': 'padding-right',
+  'b': 'padding-bottom',
+  'l': 'padding-left'
+);
+$positionsM: (
+  'a': 'margin',
+  'y': 'margin-top' 'margin-bottom',
+  'x': 'margin-left' 'margin-right',
+  't': 'margin-top',
+  'r': 'margin-right',
+  'b': 'margin-bottom',
+  'l': 'margin-left'
+);
+
+// do the padding stuff
+// loop over the sizes and positions
+@each $sizeName, $sizePx in $sizes {
+  @each $posName, $posRules in $positionsP {
+    
+    // create the rules based on position
+    @if ($sizeName != '') {
+      .p-#{$posName}-#{$sizeName} { 
+        @each $posRule in $posRules {
+          #{$posRule}: #{$sizePx} !important;
+        } 
+      }
+    } @else {
+      .p-#{$posName} { 
+        @each $posRule in $posRules {
+          #{$posRule}: #{$sizePx} !important;
+        } 
+      }
+    }
+    
+  }
+}
+
+// do the margin stuff
+// loop over the sizes and positions
+@each $sizeName, $sizePx in $sizes {
+  @each $posName, $posRules in $positionsM {
+    
+    // create the rules based on position
+    @if ($sizeName != '') {
+      .m-#{$posName}-#{$sizeName} { 
+        @each $posRule in $posRules {
+          #{$posRule}: #{$sizePx} !important;
+        } 
+      }
+    } @else {
+      .m-#{$posName} { 
+        @each $posRule in $posRules {
+          #{$posRule}: #{$sizePx} !important;
+        } 
+      }
+    }
+    
+  }
 }
